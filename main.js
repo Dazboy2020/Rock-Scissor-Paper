@@ -1,7 +1,10 @@
 "use strict";
 const userChoice = document.querySelectorAll(".btn--game");
+const playerScore = document.querySelector(".playerChoose");
+const computerScore = document.querySelector(".compChoose");
+const displayWinner = document.querySelector(".winner");
 
-const computerChoiceArr = ["rock", "scissors", "paper"];
+const computerChoiceArr = ["Rock", "Scissors", "Paper"];
 
 const getComputerChoice = () => {
 	return computerChoiceArr[
@@ -12,21 +15,50 @@ const getComputerChoice = () => {
 let playerSelection;
 let computerSelection;
 let result;
+let player;
+let computer;
 
 userChoice.forEach((choice) =>
 	choice.addEventListener("click", (e) => {
 		playerSelection = e.target.id;
 		computerSelection = getComputerChoice();
-		console.log(`User clicked ${playerSelection}`);
-		console.log(`Comp clicked ${computerSelection}`);
-		result = playerSelection + computerSelection;
 
-		playRound();
+		playRound(playerSelection, computerSelection);
 	})
 );
 
-function playRound(playerSelection, computerSelection) {
-	getComputerChoice();
+const clearSelection = () => {
+	playerScore.innerHTML = "You chose: ";
+	computerScore.innerHTML = "Computer chose: ";
+	displayWinner.innerHTML = "The Winner is: ";
+};
 
-	console.log(result);
+function playRound(playerSelection, computerSelection) {
+	clearSelection();
+	playerScore.insertAdjacentHTML("beforeend", `${playerSelection}`);
+	computerScore.insertAdjacentHTML("beforeend", `${computerSelection}`);
+	winner(result);
+}
+
+function winner() {
+	result = playerSelection + computerSelection;
+
+	if (
+		result == "RockScissors" ||
+		result == "PaperRock" ||
+		result == "ScissorsPaper"
+	) {
+		displayWinner.insertAdjacentHTML("beforeend", `You Win!`);
+	} else if (
+		result == "RockPaper" ||
+		result == "PaperScissors" ||
+		result == "ScissorsRock"
+	) {
+		displayWinner.insertAdjacentHTML("beforeend", `Computer Wins!`);
+	} else {
+		result == "RockRock" ||
+			result == "PaperPaper" ||
+			result == "ScissorsScissors";
+		displayWinner.insertAdjacentHTML("beforeend", `TIE!!`);
+	}
 }
