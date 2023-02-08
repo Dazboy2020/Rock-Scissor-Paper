@@ -1,10 +1,13 @@
 * {
 	box-sizing: border-box;
 	margin: 0;
+	padding: 0;
 }
 
 body {
-	background-color: orange;
+	height: 100vh;
+
+	background-image: linear-gradient(to bottom left, #e7c06c 0%, #f2c58a 100%);
 	color: white;
 }
 
@@ -14,6 +17,16 @@ body {
 	margin: 1rem;
 }
 
+img {
+	height: 15rem;
+	width: auto;
+	transition: transform 0.1s; /* Animation */
+}
+
+img:hover {
+	transform: scale(1.1);
+}
+
 .computer,
 .player,
 .winner {
@@ -21,4 +34,10 @@ body {
 	padding: 1rem 2rem;
 	font-size: 2rem;
 	margin: 1rem;
+}
+
+.btn--container {
+	display: flex;
+	justify-content: center;
+	margin-top: 25rem;
 }
