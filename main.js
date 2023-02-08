@@ -4,17 +4,14 @@ const userChoice = document.querySelectorAll(".btn--game");
 const computerChoiceArr = ["rock", "scissors", "paper"];
 
 const getComputerChoice = () => {
-	const randomChoice =
-		computerChoiceArr[Math.floor(Math.random() * computerChoiceArr.length)];
-	return randomChoice;
+	return computerChoiceArr[
+		Math.floor(Math.random() * computerChoiceArr.length)
+	];
 };
 
 let playerSelection;
 let computerSelection;
 let result;
-let randomChoice;
-
-computerSelection = getComputerChoice();
 
 userChoice.forEach((choice) =>
 	choice.addEventListener("click", (e) => {
