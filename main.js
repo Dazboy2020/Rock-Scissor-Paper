@@ -18,13 +18,14 @@ let playerScore = 0;
 let computerScore = 0;
 let playing;
 
-//! *** Modal Function to open & close
+//! Modal Function to open & close //
 const openModal = function (computerScore, playerScore) {
 	modal.classList.remove("hidden");
 	overlay.classList.remove("hidden");
 	playing = false;
 };
 
+//! Close modal and reset game //
 const closeModel = function () {
 	modal.classList.add("hidden");
 	displayWinner.innerHTML = "";
@@ -40,6 +41,7 @@ const getComputerChoice = () => {
 	];
 };
 
+//! Event listener for user input //
 userChoice.forEach((choice) =>
 	choice.addEventListener("click", (e) => {
 		if (playing) {
@@ -97,6 +99,7 @@ function winner() {
 	checkWinner();
 }
 
+//! CSS animation functions
 const animateImageWin = function (playerSelection) {
 	if (playerSelection == "Rock") {
 		paper.classList.add("animate__animated", "animate__backOutDown");
@@ -136,6 +139,7 @@ userChoice.forEach((image) =>
 	})
 );
 
+//! Check for winner and adjust score //
 const checkWinner = () => {
 	if (playerScore === 5) {
 		openModal();
@@ -149,6 +153,7 @@ const checkWinner = () => {
 	}
 };
 
+//! Reset all values
 const resetGame = function () {
 	playerScore = 0;
 	computerScore = 0;
