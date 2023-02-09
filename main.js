@@ -14,6 +14,7 @@ const overlay = document.querySelector(".overlay");
 //! *** Modal Function to open & close
 const openModal = function (computerScore, playerScore) {
 	modal.classList.remove("hidden");
+	playing = false;
 };
 
 const closeModel = function () {
@@ -36,14 +37,18 @@ let computerSelection;
 let result;
 let playerScore = 0;
 let computerScore = 0;
-let round = 0;
+let playing;
 
 userChoice.forEach((choice) =>
 	choice.addEventListener("click", (e) => {
-		playerSelection = e.target.id;
-		console.log(playerSelection);
-		computerSelection = getComputerChoice();
-		playRound(playerSelection, computerSelection);
+		if (playing) {
+			playerSelection = e.target.id;
+			console.log(playerSelection);
+			computerSelection = getComputerChoice();
+			playRound(playerSelection, computerSelection);
+		} else {
+			return;
+		}
 	})
 );
 
@@ -150,6 +155,7 @@ const resetGame = function () {
 
 const init = () => {
 	clearSelection();
+	playing = true;
 
 	// resetGame();
 	// closeModel();
