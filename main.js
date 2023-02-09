@@ -44,7 +44,6 @@ userChoice.forEach((choice) =>
 	choice.addEventListener("click", (e) => {
 		if (playing) {
 			playerSelection = e.target.id;
-			console.log(playerSelection);
 			computerSelection = getComputerChoice();
 			playRound(playerSelection, computerSelection);
 		} else {
@@ -154,7 +153,6 @@ const checkWinner = () => {
 const resetGame = function () {
 	playerScore = 0;
 	computerScore = 0;
-	displayWinner.insertAdjacentHTML("beforeend", "");
 	init();
 };
 
@@ -162,9 +160,6 @@ const init = () => {
 	clearSelection();
 	overlay.classList.add("hidden");
 	playing = true;
-
-	// resetGame();
-	// closeModel();
 };
 
 modal.addEventListener("click", closeModel);
