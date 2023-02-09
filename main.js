@@ -7,7 +7,6 @@ const rock = document.getElementById("Rock");
 const scissors = document.getElementById("Scissors");
 const paper = document.getElementById("Paper");
 const winningMessage = document.querySelector(".gameOver");
-// *** Modal window
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 
@@ -18,7 +17,7 @@ let playerScore = 0;
 let computerScore = 0;
 let playing;
 
-//! *** Modal Function to open & close
+//! Modal Function to open & close
 const openModal = function (computerScore, playerScore) {
 	modal.classList.remove("hidden");
 	overlay.classList.remove("hidden");
@@ -40,6 +39,7 @@ const getComputerChoice = () => {
 	];
 };
 
+//! Event listener for user input //
 userChoice.forEach((choice) =>
 	choice.addEventListener("click", (e) => {
 		if (playing) {
@@ -97,6 +97,7 @@ function winner() {
 	checkWinner();
 }
 
+//! Function to invoke CSS libraries //
 const animateImageWin = function (playerSelection) {
 	if (playerSelection == "Rock") {
 		paper.classList.add("animate__animated", "animate__backOutDown");
@@ -136,6 +137,7 @@ userChoice.forEach((image) =>
 	})
 );
 
+//! Check winner and update UI //
 const checkWinner = () => {
 	if (playerScore === 5) {
 		openModal();
