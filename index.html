@@ -9,25 +9,29 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
 		<script defer src="main.js"></script>
 		<title>Document</title>
 	</head>
 	<body>
-		<main>
-			
-			<div class="player">
-				<p class="playerChoose">You chose:</p>
-			</div>
-			<div class="computer">
-				<p class="compChoose">Computer chose:</p>
-			</div class="Result">
-            <p class ="winner">The Winner is: </p>
+		<div class="container">
+            <main>
+                <nav class="animate__animated animate__bounceInDown">ROCK PAPER SCISSORS</nav>
+                
+                <div class="game--info">
+                    <div class="player">Player: </div>
+                    <div class="winner">Winner: </div>
+                    <div class="computer">Computer:</div>
+            </div>
+            <div class="btn--container animate__animated animate__backInUp">
+                <img src="rock.svg" class="btn--game" id="Rock"></button>
+                <img src="scissors.svg" class="btn--game" id="Scissors"></button>
+                <img src="paper.svg" class="btn--game" id="Paper"></button>
+            </div>
+            </main>
+
         </div>
-        <div class="btn--container animate__animated animate__backInUp">
-            <img src="rock.svg" class="btn--game" id="Rock"></button>
-            <img src="scissors.svg" class="btn--game" id="Scissors"></button>
-            <img src="paper.svg" class="btn--game" id="Paper"></button>
-        </div>
-		</main>
 	</body>
 </html>
