@@ -10,16 +10,17 @@ const paper = document.getElementById("Paper");
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 
-// *** Modal Function to open & close
+//! *** Modal Function to open & close
 const openModal = function () {
 	modal.classList.remove("hidden");
 	overlay.classList.remove("hidden");
-	// displayWinningMessage(youWin.random() + ` Player ${activePlayer + 1} Wins!`);
 };
 
 const closeModel = function () {
 	modal.classList.add("hidden");
-	// overlay.classList.add("hidden");
+	displayWinner.insertAdjacentHTML("beforeend", "");
+
+	init();
 };
 
 const computerChoiceArr = ["Rock", "Scissors", "Paper"];
@@ -131,24 +132,26 @@ userChoice.forEach((image) =>
 
 const checkWinner = () => {
 	if (playerScore === 5) {
-		console.log("You Win!");
-		resetGame();
+		openModal();
 	} else if (computerScore === 5) {
-		console.log("Computer Wins!");
-		resetGame();
+		openModal();
+	} else {
+		playerScoreDisplay.insertAdjacentHTML("beforeend", `${playerScore}`);
+		computerScoreDisplay.insertAdjacentHTML("beforeend", `${computerScore}`);
 	}
-	playerScoreDisplay.insertAdjacentHTML("beforeend", `${playerScore}`);
-	computerScoreDisplay.insertAdjacentHTML("beforeend", `${computerScore}`);
 };
 
 const resetGame = function () {
 	playerScore = 0;
 	computerScore = 0;
+	displayWinner.insertAdjacentHTML("beforeend", "");
+	closeModel();
 };
 
 const init = () => {
-	// closeModel();
 	resetGame();
 };
+
+modal.addEventListener("click", closeModel);
 
 init();
