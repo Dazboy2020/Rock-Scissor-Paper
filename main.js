@@ -6,21 +6,21 @@ const displayWinner = document.querySelector(".winner");
 const rock = document.getElementById("Rock");
 const scissors = document.getElementById("Scissors");
 const paper = document.getElementById("Paper");
+const winningMessage = document.querySelector(".gameOver");
 // *** Modal window
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 
 //! *** Modal Function to open & close
-const openModal = function () {
+const openModal = function (computerScore, playerScore) {
 	modal.classList.remove("hidden");
-	overlay.classList.remove("hidden");
 };
 
 const closeModel = function () {
 	modal.classList.add("hidden");
 	displayWinner.innerHTML = "";
-
-	init();
+	resetGame();
+	// init();
 };
 
 const computerChoiceArr = ["Rock", "Scissors", "Paper"];
@@ -145,13 +145,17 @@ const resetGame = function () {
 	playerScore = 0;
 	computerScore = 0;
 	displayWinner.insertAdjacentHTML("beforeend", "");
-	closeModel();
+	init();
 };
 
 const init = () => {
-	resetGame();
+	clearSelection();
+
+	// resetGame();
+	// closeModel();
 };
 
 modal.addEventListener("click", closeModel);
 
 init();
+closeModel();
