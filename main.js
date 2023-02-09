@@ -21,6 +21,7 @@ let playing;
 //! *** Modal Function to open & close
 const openModal = function (computerScore, playerScore) {
 	modal.classList.remove("hidden");
+	overlay.classList.remove("hidden");
 	playing = false;
 };
 
@@ -157,6 +158,7 @@ const resetGame = function () {
 
 const init = () => {
 	clearSelection();
+	overlay.classList.add("hidden");
 	playing = true;
 
 	// resetGame();
