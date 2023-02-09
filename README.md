@@ -1,5 +1,5 @@
 # Rock-Scissor-Paper
-Basic Rock Scissor Paper Game in Vanilla JS
+Basic Rock Scissor Paper Game in Vanilla JS with a CSS animation library.
 
 Live Demo here: https://scissor-paper-js.netlify.app/
 
