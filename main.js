@@ -1,7 +1,7 @@
 "use strict";
 const userChoice = document.querySelectorAll(".btn--game");
-const playerScore = document.querySelector(".playerChoose");
-const computerScore = document.querySelector(".compChoose");
+const playerScoreDisplay = document.querySelector(".playerChoose");
+const computerScoreDisplay = document.querySelector(".compChoose");
 const displayWinner = document.querySelector(".winner");
 const rock = document.getElementById("Rock");
 const scissors = document.getElementById("Scissors");
@@ -32,15 +32,15 @@ userChoice.forEach((choice) =>
 );
 
 const clearSelection = () => {
-	playerScore.innerHTML = "You chose: ";
-	computerScore.innerHTML = "Computer chose: ";
+	playerScoreDisplay.innerHTML = "You chose: ";
+	computerScoreDisplay.innerHTML = "Computer chose: ";
 	displayWinner.innerHTML = "The Winner is: ";
 };
 
 function playRound(playerSelection, computerSelection) {
 	clearSelection();
-	playerScore.insertAdjacentHTML("beforeend", `${playerSelection}`);
-	computerScore.insertAdjacentHTML("beforeend", `${computerSelection}`);
+	playerScoreDisplay.insertAdjacentHTML("beforeend", `${playerSelection}`);
+	computerScoreDisplay.insertAdjacentHTML("beforeend", `${computerSelection}`);
 	winner(result);
 }
 
