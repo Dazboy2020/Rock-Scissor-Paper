@@ -13,7 +13,10 @@ body {
 }
 
 .container {
-	margin: 2rem 2rem 2rem 2rem;
+	height: 90%;
+	margin-top: 2rem;
+	margin-left: 2rem;
+	margin-right: 2rem;
 	/* border: black solid 2px; */
 
 	border: 0.3rem rgb(44, 43, 42);
@@ -74,8 +77,22 @@ img:hover {
 	display: flex;
 	flex: 1;
 	justify-content: center;
-	margin-top: 30rem;
+	margin-top: 22rem;
 }
 .animate__animated.animate__backOutDown {
 	--animate-duration: 0.4s;
+}
+
+.footer {
+	display: flex;
+	justify-content: center;
+	color: black;
+	padding: 0.5rem;
+	background-color: white;
+	margin-left: 1rem;
+	margin-right: 1rem;
+	margin-top: 0rem;
+	margin-bottom: 5em;
+	border-radius: 1rem;
+	/* margin-bottom: 3rem; */
 }
