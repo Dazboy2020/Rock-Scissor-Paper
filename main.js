@@ -22,11 +22,6 @@ let playing;
 const openModal = function (computerScore, playerScore) {
 	modal.classList.remove("hidden");
 	playing = false;
-	if (playerScore > computerScore) {
-		document.querySelector(".gameOver").textContent = "Player Wins!";
-	} else {
-		document.querySelector(".gameOver").textContent = "Computer Wins!";
-	}
 };
 
 const closeModel = function () {
@@ -143,8 +138,10 @@ userChoice.forEach((image) =>
 const checkWinner = () => {
 	if (playerScore === 5) {
 		openModal();
+		document.querySelector(".gameOver").textContent = "Player Wins!";
 	} else if (computerScore === 5) {
 		openModal();
+		document.querySelector(".gameOver").textContent = "Computer Wins!";
 	} else {
 		playerScoreDisplay.insertAdjacentHTML("beforeend", `${playerScore}`);
 		computerScoreDisplay.insertAdjacentHTML("beforeend", `${computerScore}`);
