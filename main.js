@@ -3,6 +3,9 @@ const userChoice = document.querySelectorAll(".btn--game");
 const playerScore = document.querySelector(".playerChoose");
 const computerScore = document.querySelector(".compChoose");
 const displayWinner = document.querySelector(".winner");
+const rock = document.getElementById("Rock");
+const scissors = document.getElementById("Scissors");
+const paper = document.getElementById("Paper");
 
 const computerChoiceArr = ["Rock", "Scissors", "Paper"];
 
@@ -21,8 +24,9 @@ let computer;
 userChoice.forEach((choice) =>
 	choice.addEventListener("click", (e) => {
 		playerSelection = e.target.id;
+		console.log(playerSelection);
+		animateImage(playerSelection);
 		computerSelection = getComputerChoice();
-
 		playRound(playerSelection, computerSelection);
 	})
 );
@@ -62,3 +66,27 @@ function winner() {
 		displayWinner.insertAdjacentHTML("beforeend", `TIE!!`);
 	}
 }
+
+const animateImage = function (playerSelection) {
+	if (playerSelection == "Rock") {
+		paper.classList.add("animate__animated", "animate__backOutDown");
+		scissors.classList.add("animate__animated", "animate__backOutDown");
+		return;
+	} else if (playerSelection == "Scissors") {
+		paper.classList.add("animate__animated", "animate__backOutDown");
+		rock.classList.add("animate__animated", "animate__backOutDown");
+		return;
+	} else playerSelection == "paper";
+	rock.classList.add("animate__animated", "animate__backOutDown");
+	scissors.classList.add("animate__animated", "animate__backOutDown");
+};
+
+userChoice.forEach((image) =>
+	addEventListener("animationend", () => {
+		setTimeout(() => {
+			paper.classList.remove("animate__animated", "animate__backOutDown");
+			scissors.classList.remove("animate__animated", "animate__backOutDown");
+			rock.classList.remove("animate__animated", "animate__backOutDown");
+		}, 500);
+	})
+);

@@ -6,9 +6,9 @@
 
 body {
 	height: 100vh;
-
-	background-image: linear-gradient(to bottom left, #e7c06c 0%, #f2c58a 100%);
+	background-image: linear-gradient(to bottom left, #f5a907 0%, #f2c58a 100%);
 	color: white;
+	overflow: hidden;
 }
 
 .btn--game {
@@ -21,6 +21,7 @@ img {
 	height: 15rem;
 	width: auto;
 	transition: transform 0.1s; /* Animation */
+	border-radius: 3rem;
 }
 
 img:hover {
@@ -39,5 +40,8 @@ img:hover {
 .btn--container {
 	display: flex;
 	justify-content: center;
-	margin-top: 25rem;
+	margin-top: 30rem;
+}
+.animate__animated.animate__backOutDown {
+	--animate-duration: 0.4s;
 }
