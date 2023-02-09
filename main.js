@@ -18,7 +18,7 @@ const openModal = function () {
 
 const closeModel = function () {
 	modal.classList.add("hidden");
-	displayWinner.insertAdjacentHTML("beforeend", "");
+	displayWinner.innerHTML = "";
 
 	init();
 };
