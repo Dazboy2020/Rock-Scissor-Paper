@@ -11,10 +11,22 @@ const winningMessage = document.querySelector(".gameOver");
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 
+let playerSelection;
+let computerSelection;
+let result;
+let playerScore = 0;
+let computerScore = 0;
+let playing;
+
 //! *** Modal Function to open & close
 const openModal = function (computerScore, playerScore) {
 	modal.classList.remove("hidden");
 	playing = false;
+	if (playerScore > computerScore) {
+		document.querySelector(".gameOver").textContent = "Player Wins!";
+	} else {
+		document.querySelector(".gameOver").textContent = "Computer Wins!";
+	}
 };
 
 const closeModel = function () {
@@ -31,13 +43,6 @@ const getComputerChoice = () => {
 		Math.floor(Math.random() * computerChoiceArr.length)
 	];
 };
-
-let playerSelection;
-let computerSelection;
-let result;
-let playerScore = 0;
-let computerScore = 0;
-let playing;
 
 userChoice.forEach((choice) =>
 	choice.addEventListener("click", (e) => {
